@@ -2,8 +2,6 @@
 Goal: By observing the user's past schedule of watching movies and chasing dramas, it is estimated which time the user will watch dramas in the next week.
 
 ## Data Processing
-![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/c52c9871-f566-44d0-9e16-0cce5cad37ec)
-
 In data preprocessing, we use light_train_source and target data.
 
 First randomly separate them into training data、validation data and testing data.

@@ -47,7 +47,7 @@ Next, our LSTM model architecture is divided into three types. The first two typ
 ## Ensemble
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/10fd7d8d-0ee1-44c8-9fb6-b493bcf189d6)
 
-Next, the ensemble part. As mentioned earlier, we have various models that capture patterns in different ways, resulting in different pattern recognition performances. To address this, we use an ensemble approach, taking the predictions from the best-performing models and averaging them to obtain the best results. It means that we take the prediction of testing data from model 1 to model n and then take an average. Get the final ensemble prediction of testing data
+Next, the ensemble part. As mentioned earlier, we have various models that capture patterns in different ways, resulting in different pattern recognition performances. To address this, we use an ensemble approach, taking the predictions from the best-performing models and averaging them to obtain the best results. It means that we take the prediction of testing data from model 1 to model n and then take an average. Get the final ensemble prediction of testing data
 
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/a8e98293-9a43-49df-ba7c-16abd4f40491)
 

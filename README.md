@@ -54,7 +54,7 @@ Next, the ensemble part. As mentioned earlier, we have various models that captu
 ## Conclusion & Discussion
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/254e1653-1bdd-4a74-bd2e-e838dcead0e4)
 
-Based on our previous experiments, CNN and LSTM models have shown the ability to capture collective behavior from light data, such as periodic viewing patterns.\n
+Based on our previous experiments, CNN and LSTM models have shown the ability to capture collective behavior from light data, such as periodic viewing patterns. \n
 However, to achieve more accurate predictions of individual viewing behavior, it is suggested to train a model similar to what we trained and incorporate personal viewing history and user information.
 In order to achieve more precise predictions, we attempted to capture the activity duration of each user in each time slot from raw data. We used two different approaches: first is aggregating the played_duration for each time slot and second is calculating the time difference between the latest and earliest event time within each time slot. However, incorporating these additional features did not improve the predictions compared to using light data alone. Instead, it introduced noise and led to poorer predictions.
 

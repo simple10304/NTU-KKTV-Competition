@@ -42,7 +42,7 @@ In the LSTM section, our dataset will mainly be reshaped into two shapes. The fi
 
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/a48e1b99-a3bc-4299-ba36-716113e85c98)
 
-Next, our LSTM model architecture is divided into three types. The first two types are simple LSTM models, while the third model structure differs slightly from the previous two. This is because we consider the possibility of overfitting. If the LSTM neural network captures too much information, it may lead to overfitting. To mitigate this, we set up two LSTM individual layar and then concatenated them to avoid overfitting.Among these three models, Model Y performs the best, followed by LSTM with a dense layer, and then the basic LSTM model.
+Next, our LSTM model architecture is divided into three types. The first two types are simple LSTM models, while the third model structure differs slightly from the previous two. This is because we consider the possibility of overfitting. If the LSTM neural network captures too much information, it may lead to overfitting. To mitigate this, we set up two LSTM individual layar and then concatenated them to avoid overfitting. Among these three models, Model Y performs the best, followed by LSTM with a dense layer, and then the basic LSTM model.
 
 ## Ensemble
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/10fd7d8d-0ee1-44c8-9fb6-b493bcf189d6)

@@ -8,28 +8,25 @@ In data preprocessing, we use light_train_source and target data.
 First randomly separate them into training data、validation data and testing data.
 Training data and validation data for model development, testing data for model evaluation, to find a good model structure.
 If we find a good model structure, we will use all data without separation to refit the model and get the pre-trained model, now, we can input the new data into the model, and it will output the prediction.
-
-![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/1bc3482c-8c81-483b-a86b-becc943a3e85)
-
+![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/0a7af893-d556-42bd-b484-ac213d982d8d)
 This figure shows the usage frequency of all users.
 We can see the patterns of all users, and we assume different user have their own subject-specific patterns.
 Because of our observation in the real world.
 For example, some people watch the series all the time, some just watch it at night, and some just watch it on the weekend.
 
 ## CNN
-![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/0a7af893-d556-42bd-b484-ac213d982d8d)
-
+![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/974203e7-1dbe-42df-b8c8-6bdeafbf8f7e)
 So we want to use the CNN approach to detect the patterns.
 In CNN1D, we reshape the data from 1 by 1036 time_slot to 259 days by 4 time_slot.
 In this way, we can detect the daily patterns, and the right-hand side is the network structure, we use the CNN1D layer to detect daily patterns, and dropout layer to avoid overfitting. 
 
-![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/974203e7-1dbe-42df-b8c8-6bdeafbf8f7e)
+![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/23afb47a-0660-4625-9a0a-68f64937a359)
 
 In CNN2D, we reshape the data to 37 weeks by 7 days by 4 time_slot.
 In this way, we can detect the weekly patterns, and the right-hand side is the network structure, we use the CNN2D layer to detect the weekly patterns and Dropout layers to avoid overfitting.
 Because CNN1D、CNN2D detect different patterns, so, we combined them together and called it the Ultra CNN
 
-![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/23afb47a-0660-4625-9a0a-68f64937a359)
+![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/27bce22d-eec3-491e-94c3-6432d3d20635)
 
 This is the network structure, the left is CNN1D, right is CNN2D, we use the concatenation function to combine them.
 The performance of Ultra CNN is better than single CNN1D or 2D.
@@ -38,21 +35,14 @@ We just put an LSTM layer in the CNN2D network structure.
 To try, to see the performance, and the performance is quite good.
 
 ## LSTM
-![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/27bce22d-eec3-491e-94c3-6432d3d20635)
-
-In the LSTM section, our dataset will mainly be reshaped into two shapes. The first shape is (4,259), where we primarily aim to capture daily patterns. In this shape, we can determine the user's viewing frequency on Day 1, Day 2, Day 3, and so on, the kind of continuous daily patterns. The second shape is (28,37), which allows us to capture weekly patterns and understand the user's viewing frequency on week 1, week 2, week 3, and so on, the kind of continuous weekly patterns. The results show that if the dataset is reshaped into (28,37), which aims to capture weekly patterns the model performs better
-
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/f5e85b8a-ab47-41ea-bf9c-9d7e4ad619af)
-
+In the LSTM section, our dataset will mainly be reshaped into two shapes. The first shape is (4,259), where we primarily aim to capture daily patterns. In this shape, we can determine the user's viewing frequency on Day 1, Day 2, Day 3, and so on, the kind of continuous daily patterns. The second shape is (28,37), which allows us to capture weekly patterns and understand the user's viewing frequency on week 1, week 2, week 3, and so on, the kind of continuous weekly patterns. The results show that if the dataset is reshaped into (28,37), which aims to capture weekly patterns the model performs better
+![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/a48e1b99-a3bc-4299-ba36-716113e85c98)
 Next, our LSTM model architecture is divided into three types. The first two types are simple LSTM models, while the third model structure differs slightly from the previous two. This is because we consider the possibility of overfitting. If the LSTM neural network captures too much information, it may lead to overfitting. To mitigate this, we set up two LSTM individual layar and then concatenated them to avoid overfitting.Among these three models, Model Y performs the best, followed by LSTM with a dense layer, and then the basic LSTM model.
 
 ## Ensemble
-![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/a48e1b99-a3bc-4299-ba36-716113e85c98)
-
-Next, the ensemble part. As mentioned earlier, we have various models that capture patterns in different ways, resulting in different pattern recognition performances. To address this, we use an ensemble approach, taking the predictions from the best-performing models and averaging them to obtain the best results. It means that we take the prediction of testing data from model 1 to model n and then take an average. Get the final ensemble prediction of testing data
-
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/10fd7d8d-0ee1-44c8-9fb6-b493bcf189d6)
-
+Next, the ensemble part. As mentioned earlier, we have various models that capture patterns in different ways, resulting in different pattern recognition performances. To address this, we use an ensemble approach, taking the predictions from the best-performing models and averaging them to obtain the best results. It means that we take the prediction of testing data from model 1 to model n and then take an average. Get the final ensemble prediction of testing data
 ## Conclusion & Discussion
 
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/a8e98293-9a43-49df-ba7c-16abd4f40491)

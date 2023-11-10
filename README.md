@@ -3,6 +3,7 @@
 Goal: By observing the user's past schedule of watching movies and chasing dramas, it is estimated which time the user will watch dramas in the next week.
 
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/a51dda2d-6fa1-449c-ac7b-e2f6d2716cb8)
+
 In data preprocessing, we use light_train_source and target data.
 
 First randomly separate them into training data、validation data and testing data.
@@ -10,6 +11,7 @@ First randomly separate them into training data、validation data and testing da
 Training data and validation data for model development, testing data for model evaluation, to find a good model structure.
 
 If we find a good model structure, we will use all data without separation to refit the model and get the pre-trained model, now, we can input the new data into the model, and it will output the prediction.
+
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/977b3f43-a88a-4599-9ab5-db30dbe63fd6)
 
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/1bc3482c-8c81-483b-a86b-becc943a3e85)

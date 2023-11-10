@@ -1,8 +1,8 @@
 # NTU-KKTV-Competition
 
-Goal: By observing the user's past schedule of watching movies and chasing dramas, it is estimated which time the user will watch dramas in the next week.
+## Goal: By observing the user's past schedule of watching movies and chasing dramas, it is estimated which time the user will watch dramas in the next week.
 
-![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/a51dda2d-6fa1-449c-ac7b-e2f6d2716cb8)
+
 
 In data preprocessing, we use light_train_source and target data.
 

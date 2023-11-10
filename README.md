@@ -13,11 +13,11 @@ If we find a good model structure, we will use all data without separation to re
 
 This figure shows the usage frequency of all users.
 We can see the patterns of all users, and we assume different user have their own subject-specific patterns.
-Because of our observation in the real world.
-For example, some people watch the series all the time, some just watch it at night, and some just watch it on the weekend.
+Because of our observation in the real world. For example, some people watch the series all the time, some just watch it at night, and some just watch it on the weekend.
 
 ## CNN
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/974203e7-1dbe-42df-b8c8-6bdeafbf8f7e)
+
 So we want to use the CNN approach to detect the patterns.
 In CNN1D, we reshape the data from 1 by 1036 time_slot to 259 days by 4 time_slot.
 In this way, we can detect the daily patterns, and the right-hand side is the network structure, we use the CNN1D layer to detect daily patterns, and dropout layer to avoid overfitting. 
@@ -48,10 +48,10 @@ Next, our LSTM model architecture is divided into three types. The first two typ
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/10fd7d8d-0ee1-44c8-9fb6-b493bcf189d6)
 
 Next, the ensemble part. As mentioned earlier, we have various models that capture patterns in different ways, resulting in different pattern recognition performances. To address this, we use an ensemble approach, taking the predictions from the best-performing models and averaging them to obtain the best results. It means that we take the prediction of testing data from model 1 to model n and then take an average. Get the final ensemble prediction of testing data
+
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/a8e98293-9a43-49df-ba7c-16abd4f40491)
 
 ## Conclusion & Discussion
-
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/254e1653-1bdd-4a74-bd2e-e838dcead0e4)
 
 Based on our previous experiments, CNN and LSTM models have shown the ability to capture collective behavior from light data, such as periodic viewing patterns.
@@ -61,7 +61,8 @@ In order to achieve more precise predictions, we attempted to capture the activi
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/119403a9-5967-4d4f-b018-06c08f080064)
 
 Also, we observed a unique scenario before training the models. In the 38th week, every user had at least one viewing record on KKTV, which was not the case in the previous 37 weeks. This may have contributed to our models' inability to achieve more accurate predictions.
+
 ![image](https://github.com/simple10304/NTU-KKTV-Competition/assets/131461394/4fa7ce84-35ff-48b2-9fbd-717a3b75f952)
 
-In conclusion, If we want to get more accurate predictions, we can first use CNN or LSTM to train a model and then add personal viewing history and personal information to fine tune the model.
+In conclusion, If we want to get more accurate predictions, we can first use CNN or LSTM to train a model and then add personal viewing history and personal information to fine-tune the model.
 
